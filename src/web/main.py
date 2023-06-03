@@ -22,39 +22,22 @@ def handle_recog():
         image = Image.fromarray(image).resize((256, 256))
         content = []
 
-        # get a list of predicted disease
-        arr = []
-        for i in res: 
-            if i["prediction"] not in arr:
-                arr.append(i["prediction"])
-
-        # create an object for storing mask
-        mask_init = np.zeros([256,256],dtype=np.uint8)
-        mask_init.fill(0)
-        mask_obj = {key: mask_init for key in arr}
-
-        print(mask_obj)
-
-        # loop over result -> stacking masks
-        for i in range(len(res)):
-            mask = res[i]["segment_data"]
-            mask_obj[res[i]["prediction"]] = mask_obj[res[i]["prediction"]] + mask
-
         # applying mask
-        for (k, v) in mask_obj.items():
+        for i in res:
             # load the image onto an numpy array
             img_arr = np.array(image)
             # seperate RGB layers from the image
             layer1, layer2, layer3 = img_arr[:, :, 0], img_arr[:, :, 1], img_arr[:, :, 2]
             # apply mask to each layer in the image
-            layer1, layer2, layer3 = (layer1 * v), (layer2 * v), (layer3 * v)
+            mask = i["segment_data"]
+            layer1, layer2, layer3 = (layer1 * mask), (layer2 * mask), (layer3 * mask)
             # stack RGB layers to make the masked color image
             layer0 = np.invert(np.dstack([layer1, layer2, layer3]))
             # convert the image background to black
-            layer0[v == 0] = 0
+            layer0[mask == 0] = 0
             # saving the image
-            filename = f"predict_{str(k)}.jpg"
-            content.append({"prediction": str(k), "segment_data": filename})
+            filename = f"seg-{i['segment']}_pred-{i['prediction']}_conf-{i['confidence']}.jpg"
+            content.append({"prediction": i['prediction'], "segment_data": filename, "confidence": i['confidence']})
             Image.fromarray(layer0).save(f"test/{filename}.jpg")
         
         print(content)
