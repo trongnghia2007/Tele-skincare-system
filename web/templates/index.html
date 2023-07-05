@@ -71,7 +71,6 @@
     />
     <meta name="generator" content="Microweber" />
 
-
     <style>
       #loading-overlay {
         display: flex;
@@ -155,7 +154,7 @@
 
       #upload-input {
         margin-bottom: 5px;
-        margin-left: 0px; 
+        margin-left: 0px;
         display: inline-block;
         padding: 10px 20px;
         background-color: #FFD700;
@@ -192,9 +191,9 @@
         text-align: center;
         display: none;
       }
-      
+
       #use-button {
-        margin-bottom: 1rem; 
+        margin-bottom: 1rem;
       	display: inline-block;
         padding: 10px 20px;
         background-color: #FA8072;
@@ -264,22 +263,22 @@
           width: 38%;
           border-radius: 20px;
           box-shadow: 0 2px 4px rgba(0, 1, 1, 0.5);
-          
+
       }
-      
+
       .text1 {
           width: 62%;
           padding-left: 20px;
-          font-size: 18px;
+          font-size: 16px;
           text-align: left;
       }
       .text2 {
           width: 62%;
           padding-right: 30px;
-          font-size: 18px;
+          font-size: 16px;
           text-align: right;
       }
-      
+
       ul1 {
         direction: rtl; /* Căn lề văn bản sang phải */
         list-style-type: none; /* Loại bỏ bullets mặc định */
@@ -298,11 +297,10 @@
         right: 0;
         font-size: 18;
       }
-
     </style>
   </head>
   <body>
-    <div id="loading-overlay" style="display: none;">
+    <div id="loading-overlay" style="display: none">
       <div class="loader"></div>
     </div>
     <section
@@ -317,17 +315,24 @@
             <div class="col-12 col-xl-10 mx-auto">
               <div class="row d-flex align-items-center justify-content-center">
                 <div class="col-12 col-lg-6 allow-drop py-4">
-                  <h1 class="header-section-title" style="color: #ffffff; font-size: 80px; line-height: 106px">
+                  <h1
+                    class="header-section-title"
+                    style="color: #ffffff; font-size: 80px; line-height: 106px"
+                  >
                     Chẩn đoán bệnh da
                   </h1>
-                  <pre class="header-section-p lead my-8" style="color: #ffffff; font-size: 18px;">
-Nhận thấy số ca mắc bệnh da tăng cao, 
-nhóm nghiên cứu đã tạo ra website này để 
-hỗ trợ bác sĩ và người dân, qua đó hướng 
-đến một cuộc sống khỏe mạnh hơn.
+                  <pre
+                    class="header-section-p lead my-8"
+                    style="color: #ffffff; font-size: 18px;"
+                  >
+Hỗ trợ bác sĩ và người dân phát hiện, chăm
+sóc và chữa trị bệnh tại nhà, giảm thiểu
+số ca mắc cho một cuộc sống khỏe mạnh hơn
                   </pre>
 
-                  <div class="nodrop d-flex align-items-center justify-content-start cloneable">
+                  <div
+                    class="nodrop d-flex align-items-center justify-content-start cloneable"
+                  >
                     <div
                       class="module module-btn"
                       id="module-layouts-1-btn"
@@ -358,14 +363,20 @@ hỗ trợ bác sĩ và người dân, qua đó hướng
                   </div>
                 </div>
 
-                <div class="ms-md-0 ms-md-5 col-10 col-sm-10 col-md-8 col-xl-5 py-4 cloneable position-relative">
-                  <div class="photography-orange-rectangle photography-rectangle-top"></div>
+                <div
+                  class="ms-md-0 ms-md-5 col-10 col-sm-10 col-md-8 col-xl-5 py-4 cloneable position-relative"
+                >
+                  <div
+                    class="photography-orange-rectangle photography-rectangle-top"
+                  ></div>
                   <img
                     src="https://thevideoink.com/wp-content/uploads/2021/11/wysiwyg-uploads_1569586526901-doctor.jpg"
                     class="w-100"
                     style="position: relative; z-index: 1"
                   />
-                  <div class="photography-orange-rectangle photography-rectangle-bottom"></div>
+                  <div
+                    class="photography-orange-rectangle photography-rectangle-bottom"
+                  ></div>
                 </div>
               </div>
             </div>
@@ -375,46 +386,78 @@ hỗ trợ bác sĩ và người dân, qua đó hướng
     </section>
 
     <div id="wrapper">
-
       <div id="left" style="margin-top: 0.5rem; margin-left: 5rem">
-      	<h1>Vùng bệnh</h1>
-        <input id = "upload-input" type="file" accept="image/*" style = "display: none">
-        <button id = "upload-input" onclick="document.getElementById('upload-input').click();">Tải ảnh lên</button>
-        <div id="preview" style="border: 2px solid black; margin-left: 5px"></div>
+        <h1>Vùng bệnh</h1>
+        <input
+          id="upload-input"
+          type="file"
+          accept="image/*"
+          style="display: none"
+        />
+        <button
+          id="upload-input"
+          onclick="document.getElementById('upload-input').click();"
+        >
+          Tải ảnh lên
+        </button>
+        <div
+          id="preview"
+          style="border: 2px solid black; margin-left: 5px"
+        ></div>
       </div>
 
-      <div style="margin-left: 100px; ">
-      <form action="http://127.0.0.1:5000" id="myForm">
-        <h1 style="margin-top: 33px; margin-bottom: 3rem">Triệu chứng</h1>
-          <input type="checkbox" id="opt1" name="opt1" value="thủy đậu">
-          <label for="opt1"> Phát ban (da xuất hiện các đốm sưng nhỏ, màu đỏ sau đó phát triền thành mụn nước rồi đóng vảy)</label><br>
-          <input type="checkbox" id="opt2" name="opt2" value="thủy đậu">
-          <label for="opt2"> Cảm thấy sốt, mệt mỏi hoặc đau đầu</label><br>
-          <input type="checkbox" id="opt3" name="opt3" value="">
-          <label for="opt3"> Ngứa dữ dội</label><br>
-          <input type="checkbox" id="opt4" name="opt4" value="chàm">
-          <label for="opt4"> Phát ban (da nổi lên các chấm đỏ, có thể rỉ nước hoặc đóng vảy)</label><br>
-          <input type="checkbox" id="opt5" name="opt5" value="chàm">
-          <label for="opt5"> Vùng dạ bị đỏ, viêm hoặc sưng</label><br>
-          <input type="checkbox" id="opt6" name="opt6" value="chàm">
-          <label for="opt6"> Các mảng da khô, sần sùi, có vảy hoặc bong tróc</label><br>
-          <input type="checkbox" id="opt7" name="opt7" value="ung thư da">
-          <label for="opt7"> Xuất hiện một khối u mới hoặc khối u thay đồi về kích thước hoặc màu sắc</label><br>
-          <input type="checkbox" id="opt8" name="opt6" value="ung thư da">
-          <label for="opt8"> Khối u ngứa và đau</label><br>
-          <input type="checkbox" id="opt9" name="opt9" value="ung thư da">
-          <label for="opt9"> Khối u có viền nổi lên và phần bên trong chảy máu hoặc đóng vảy</label><br>
-          <input type="checkbox" id="opt10" name="opt10" value="ung thư da">
-          <label for="opt10"> Có vết loét khó lành, chảy máu hoặc đóng vảy</label><br><br>  
-      </form>
-      
-      <!--<p id="result"></p>  Element to display the result -->
-      
-      <script>
-          document.getElementById('myForm').addEventListener('use-button', function (e) {
+      <div style="margin-left: 100px">
+        <form action="http://127.0.0.1:5000" id="myForm">
+          <h1 style="margin-top: 33px; margin-bottom: 3rem">Triệu chứng</h1>
+          <input type="checkbox" id="opt1" name="opt1" value="thủy đậu" />
+          <label for="opt1">
+            Phát ban (da xuất hiện các đốm sưng nhỏ, màu đỏ sau đó phát triền
+            thành mụn nước rồi đóng vảy)</label
+          ><br />
+          <input type="checkbox" id="opt2" name="opt2" value="thủy đậu" />
+          <label for="opt2"> Cảm thấy sốt, mệt mỏi hoặc đau đầu</label><br />
+          <input type="checkbox" id="opt3" name="opt3" value="" />
+          <label for="opt3"> Ngứa dữ dội</label><br />
+          <input type="checkbox" id="opt4" name="opt4" value="chàm" />
+          <label for="opt4">
+            Phát ban (da nổi lên các chấm đỏ, có thể rỉ nước hoặc đóng
+            vảy)</label
+          ><br />
+          <input type="checkbox" id="opt5" name="opt5" value="chàm" />
+          <label for="opt5"> Vùng dạ bị đỏ, viêm hoặc sưng</label><br />
+          <input type="checkbox" id="opt6" name="opt6" value="chàm" />
+          <label for="opt6">
+            Các mảng da khô, sần sùi, có vảy hoặc bong tróc</label
+          ><br />
+          <input type="checkbox" id="opt7" name="opt7" value="ung thư da" />
+          <label for="opt7">
+            Xuất hiện một khối u mới hoặc khối u thay đồi về kích thước hoặc màu
+            sắc</label
+          ><br />
+          <input type="checkbox" id="opt8" name="opt6" value="ung thư da" />
+          <label for="opt8"> Khối u ngứa và đau</label><br />
+          <input type="checkbox" id="opt9" name="opt9" value="ung thư da" />
+          <label for="opt9">
+            Khối u có viền nổi lên và phần bên trong chảy máu hoặc đóng
+            vảy</label
+          ><br />
+          <input type="checkbox" id="opt10" name="opt10" value="ung thư da" />
+          <label for="opt10">
+            Có vết loét khó lành, chảy máu hoặc đóng vảy</label
+          ><br /><br />
+        </form>
+
+        <!--<p id="result"></p>  Element to display the result -->
+
+        <script>
+          document
+            .getElementById("myForm")
+            .addEventListener("use-button", function (e) {
               e.preventDefault(); // Prevent form submission
 
-              var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+              var checkboxes = document.querySelectorAll(
+                'input[type="checkbox"]'
+              );
               var selectedChoicesSet = new Set();
 
               checkboxes.forEach(function (checkbox) {
@@ -430,80 +473,95 @@ hỗ trợ bác sĩ và người dân, qua đó hướng
               var selectedChoices = Array.from(selectedChoicesSet); // Convert set to array
 
               // document.getElementById('result').textContent = "Selected choices: " + selectedChoices.join(", ");
-          });
-      </script>
+            });
+        </script>
       </div>
 
       <div class="row" id="output" style="display: none; font-size: 50px">
         <h1>Kết Quả</h1>
       </div>
-
     </div>
 
     <div id="action-buttons">
       <button id="use-button">Bắt đầu chẩn đoán</button>
     </div>
-  
-    
-    <h1 id="solution" style="display: none; font-size: 50px">Lời Khuyên</h1>
+
+    <h1 id="solution" style="display: none; font-size: 50px; color: darkgreen">
+      Lời Khuyên
+    </h1>
 
     <div class="container1" id="advice" style="display: none">
       <div class="container">
-        <img class="image" src="https://d.newsweek.com/en/full/1076279/chickenpox-stock.jpg" alt="Ảnh 1" />
-        <div class="text1" style = "margin-left: 10px">
-            <h1 style = "text-align: left; margin-bottom: 12px; margin-left: 10px;">Thủy đậu</h1>
-            <ul style = "margin-top: 0px;">
-              <li>Nên thăm khám bác sĩ</li>
-              <li>Hạn chế tiếp xúc với người khác</li>
-              <li>Tránh gãi mụn nước</li>
-              <li>Không băng kín vết phồng rộp</li>
-              <li>Giữ gìn vệ sinh tốt</li>
-              <!--<li>Giữ nước</li> -->
-              <li>Nghỉ ngơi nhiều, ăn uống đủ chất</li>
-              <li>Có thể dùng thuốc giảm đau</li>
-              <!--<li>Không dùng aspirin</li> -->
-              <li>Không dùng thuốc chống viêm không steroid</li>
+        <img
+          class="image"
+          src="https://d.newsweek.com/en/full/1076279/chickenpox-stock.jpg"
+          alt="Ảnh 1"
+        />
+        <div class="text1" style="margin-left: 10px">
+          <h1 style="text-align: left; margin-bottom: 12px; margin-left: 10px">
+            Thủy đậu
+          </h1>
+          <ul style="margin-top: 0px">
+            <li>Nên thăm khám bác sĩ</li>
+            <li>Hạn chế tiếp xúc với người khác</li>
+            <li>Tránh gãi mụn nước</li>
+            <li>Không băng kín vết phồng rộp</li>
+            <li>Giữ gìn vệ sinh tốt</li>
+            <!--<li>Giữ nước</li> -->
+            <li>Nghỉ ngơi nhiều, ăn uống đủ chất</li>
+            <li>Có thể dùng thuốc giảm đau</li>
+            <!--<li>Không dùng aspirin</li> -->
+            <li>Không dùng thuốc chống viêm không steroid</li>
           </ul>
         </div>
       </div>
-      
-      <div class="container" style ="margin-top: 2rem;">
-          <div class="text2" style = "margin-right: 10px; margin-top: -20px">
-              <h2 style = "text-align:right margin-bottom: 12px; margin-right: 5px;">Chàm</h2>
-              <ul1>
-                <li1>Nên thăm khám bác sĩ</li1><br>
-                <li1>Xác định và tránh các tác nhân gây bệnh</li1><br>
-                <!--<li>Dưỡng ẩm, chăm sóc</li>-->
-                <li1>Bôi thuốc theo toa</li1><br>
-                <li1>Mặc quần áo thoải mái</li1><br>
-                <li1>Kiểm soát căng thẳng</li1><br>
-                <li1>Hạn chế gãi làm tổn thương da</li1><br>
-                <li1>Tránh sử dụng nước nóng và xà phòng, chất tẩy rửa mạnh</li1><br>
-                <!--<li>Không sử dụng nước nóng</li>-->
-                <li1>Tránh dùng nhiều kem hoặc thuốc mỡ corticosteroid</li1><br>
-            </ul1>
-          </div>
-          <img class="image" src="https://www.thesun.co.uk/wp-content/uploads/2022/07/NINTCHDBPICT000733794880.jpg" alt="Ảnh 2" />
-      </div>
-      
-      <div class="container" style ="margin-top: 0.5rem;">
-          <img class="image" src="https://scontent.xx.fbcdn.net/v/t1.15752-9/353797550_926383761994250_2554919916316033964_n.jpg?stp=dst-jpg_s403x403&_nc_cat=110&cb=99be929b-3346023f&ccb=1-7&_nc_sid=aee45a&_nc_ohc=aPWHe3x4NwsAX9IfmBT&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTJxNIVjaC4wpkaqGnTvg48XPcbA-ZPwZNyzWK3m9tCCw&oe=64C33A88" alt="Ảnh 3" />
-          <div class="text1" style = "margin-left: 10px">
-              <h1 style = "margin-bottom: 12px; margin-left: 10px;">Ung thư da</h1>
-              <ul style = "margin-top: 0px;">
-                <li>Nên thăm khám bác sĩ</li>
-                <li>Hạn chế tiếp xúc với tia UV</li>
-                <li>Mặc quần áo bảo hộ, dùng kem chống nắng</li>
-                <li>Để ý bất kỳ thay đổi nào của da</li>
-                <li>Kiểm tra, theo dõi định kỳ tại các phòng khám</li>
-            </ul>
-          </div>       
+
+      <div class="container" style="margin-top: 2rem">
+        <div class="text2" style="margin-right: 10px; margin-top: -20px">
+          <h2 style="text-align:right margin-bottom: 12px; margin-right: 5px;">
+            Chàm
+          </h2>
+          <ul1>
+            <li1>Nên thăm khám bác sĩ</li1><br />
+            <li1>Xác định và tránh các tác nhân gây bệnh</li1><br />
+            <!--<li>Dưỡng ẩm, chăm sóc</li>-->
+            <li1>Bôi thuốc theo toa</li1><br />
+            <li1>Mặc quần áo thoải mái</li1><br />
+            <li1>Kiểm soát căng thẳng</li1><br />
+            <li1>Hạn chế gãi làm tổn thương da</li1><br />
+            <li1>Tránh sử dụng nước nóng và xà phòng, chất tẩy rửa mạnh</li1
+            ><br />
+            <!--<li>Không sử dụng nước nóng</li>-->
+            <li1>Tránh dùng nhiều kem hoặc thuốc mỡ corticosteroid</li1><br />
+          </ul1>
+        </div>
+        <img
+          class="image"
+          src="https://www.thesun.co.uk/wp-content/uploads/2022/07/NINTCHDBPICT000733794880.jpg"
+          alt="Ảnh 2"
+        />
       </div>
 
+      <div class="container" style="margin-top: 0.5rem">
+        <img
+          class="image"
+          src="https://scontent.xx.fbcdn.net/v/t1.15752-9/353797550_926383761994250_2554919916316033964_n.jpg?stp=dst-jpg_s403x403&_nc_cat=110&cb=99be929b-3346023f&ccb=1-7&_nc_sid=aee45a&_nc_ohc=aPWHe3x4NwsAX9IfmBT&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTJxNIVjaC4wpkaqGnTvg48XPcbA-ZPwZNyzWK3m9tCCw&oe=64C33A88"
+          alt="Ảnh 3"
+        />
+        <div class="text1" style="margin-left: 10px">
+          <h1 style="margin-bottom: 12px; margin-left: 10px">Ung thư da</h1>
+          <ul style="margin-top: 0px">
+            <li>Nên thăm khám bác sĩ</li>
+            <li>Hạn chế tiếp xúc với tia UV</li>
+            <li>Mặc quần áo bảo hộ, dùng kem chống nắng</li>
+            <li>Để ý bất kỳ thay đổi nào của da</li>
+            <li>Kiểm tra, theo dõi định kỳ tại các phòng khám</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
-
-    <script> 
+    <script>
       // Get DOM elements
       const uploadInput = document.getElementById("upload-input");
       const preview = document.getElementById("preview");
@@ -555,8 +613,12 @@ hỗ trợ bác sĩ và người dân, qua đó hướng
           const result = await response.text();
           try {
             // remove loading animation
-            document.querySelector("#loading-overlay").style.display = 'none';
-            document.body.classList.remove("loading")
+            document.querySelector("#loading-overlay").style.display = "none";
+            document.body.classList.remove("loading");
+
+            // remove upload button
+            document.querySelector("button#upload-input").style.display =
+              "none";
             const json_res = JSON.parse(result);
             //console.log(json_res); // Xử lý kết quả theo ý muốn (ví dụ: hiển thị cho người dùng)
             outputSection.style.display = "block"; // Hiển thị phần kết quả
@@ -582,7 +644,6 @@ hỗ trợ bác sĩ và người dân, qua đó hướng
             slicImage.style.maxHeight = "100%";
             preview.innerHTML = "";
             preview.appendChild(slicImage);
-
           } catch {
             console.error(result); // Xử lý kết quả theo ý muốn (ví dụ: hiển thị cho người dùng)
             outputSection.style.display = "block"; // Hiển thị phần kết quả
@@ -592,7 +653,7 @@ hỗ trợ bác sĩ và người dân, qua đó hướng
           }
 
           // Ẩn "Triệu chứng", "Choose File", file name, "Bắt đầu chẩn đoán" và "Hủy chọn ảnh"
-          myForm.style.display = "none"; 
+          myForm.style.display = "none";
           uploadInput.style.display = "none";
           useButton.style.display = "none";
         } else {
@@ -605,7 +666,6 @@ hỗ trợ bác sĩ và người dân, qua đó hướng
 
       // Listen to the "click" event on the use button and call the performSkinRecognition function
       useButton.addEventListener("click", async () => {
-
         // getting the selected option
         var checkboxes = document.querySelectorAll('input[type="checkbox"]');
         var selectedChoicesSet = new Set();
@@ -619,7 +679,7 @@ hỗ trợ bác sĩ và người dân, qua đó hướng
             selectedChoicesSet.add(checkbox.value);
           }
         });
-        selectedChoicesSet.add('khỏe mạnh'); 
+        selectedChoicesSet.add("khỏe mạnh");
 
         var selectedChoices = Array.from(selectedChoicesSet); // Convert set to array
 
@@ -627,7 +687,7 @@ hỗ trợ bác sĩ và người dân, qua đó hướng
 
         // create a formData object
         const formData = new FormData();
-        
+
         // add the image and the selections to the form data
         const file = uploadInput.files[0];
         if (file) {
@@ -635,16 +695,16 @@ hỗ trợ bác sĩ và người dân, qua đó hướng
           formData.append("image", file);
           // add selections
           selectedChoices.forEach((e) => {
-            formData.append('sel[]', e)
-          })
+            formData.append("sel[]", e);
+          });
           // formData.append("sel", selectedChoices);
           alert(
-          'Click "OK" to start. \nThis process may take a few seconds to complete!'
+            'Click "OK" to start. \nThis process may take a few seconds to complete!'
           );
           // start loading animation
-          document.querySelector("#loading-overlay").style.display = 'flex';
+          document.querySelector("#loading-overlay").style.display = "flex";
           document.body.classList.add("loading");
-          await performSkinRecognition(formData);          
+          await performSkinRecognition(formData);
         }
       });
     </script>
