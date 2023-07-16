@@ -15,12 +15,12 @@ from matplotlib.figure import Figure
 app = Flask(__name__)
 
 # Load the pre-trained model
-model = keras.models.load_model('models/keras_model_2.h5')
+# model = keras.models.load_model('models/all.h5')
 
 # Load the labels
-class_names = ['thủy đậu', 'chàm', 'ung thư da', 'khỏe mạnh']
+# class_names = ['thủy đậu', 'chàm', 'ung thư da', 'khỏe mạnh']
 
-def predict_with_model(img, seg):
+def predict_with_model(img, seg, selection):
     data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 
     image = img.convert("RGB")
@@ -33,14 +33,38 @@ def predict_with_model(img, seg):
 
     data[0] = normalized_image_array
 
+    # load model
+    if selection == ['thủy đậu', 'khỏe mạnh']:
+        model = keras.models.load_model('models/cp.h5')
+    elif selection == ['chàm', 'khỏe mạnh']:
+        model = keras.models.load_model('models/ecz.h5')
+    elif selection == ['ung thư da', 'khỏe mạnh']:
+        model = keras.models.load_model('models/sc.h5')
+    elif selection == ['thủy đậu', 'chàm', 'khỏe mạnh']:
+        model = keras.models.load_model('models/cp - ecz.h5')   
+    elif selection == ['thủy đậu', 'ung thư da', 'khỏe mạnh']:
+        model = keras.models.load_model('models/cp - sc.h5')
+    elif selection == ['chàm', 'ung thư da', 'khỏe mạnh']:
+        model = keras.models.load_model('models/ecz - sc.h5')
+    elif selection == ['thủy đậu', 'khỏe mạnh']:
+        model = keras.models.load_model('models/cp.h5')
+    elif selection == ['chàm', 'khỏe mạnh']:
+        model = keras.models.load_model('models/ecz.h5')
+    elif selection == ['ung thư da', 'khỏe mạnh']:
+        model = keras.models.load_model('models/sc.h5')
+    elif selection == ['thủy đậu', 'chàm', 'ung thư da', 'khỏe mạnh'] or selection == ['khỏe mạnh']:
+        selection = ['thủy đậu', 'chàm', 'ung thư da', 'khỏe mạnh'] 
+        model = keras.models.load_model('models/all.h5')
+    
+
     prediction = model.predict(data)
     index = np.argmax(prediction)
-    class_name = class_names[index]
+    selection = selection[index]
     confidence_score = prediction[0][index]
 
-    return {"class_name": class_name, "confidence": confidence_score}
+    return {"class_name": selection, "confidence": confidence_score}
 
-def recognize(img):
+def recognize(img,selection):
     pathSave = 'segments/'
 
     skin_image = Image.fromarray(img).resize((224, 224))
@@ -83,11 +107,13 @@ def recognize(img):
             output[:, :, i] = final_result
         final_seg = Image.fromarray(output)
 
-        out = predict_with_model(final_seg, temp_i)
+        out = predict_with_model(final_seg, temp_i, selection)
 
         res.append({"segment": temp_i, "prediction": out['class_name'], "confidence": str(round(out['confidence']*100)), "segment_data": mask})
         Image.fromarray(mask).save(f"segments/seg-{temp_i}_pred-{out['class_name']}_conf-{round(out['confidence'], 3)}.jpg")
             
         print(f"seg-{temp_i}_pred-{out['class_name']} \nConfidence: {round(out['confidence'], 3)}")
 
+        print(selection) 
+        
     return res

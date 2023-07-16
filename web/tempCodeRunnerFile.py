@@ -1,1 +1,1 @@
-le
+selection = (request.form.getlist('sel[]'))

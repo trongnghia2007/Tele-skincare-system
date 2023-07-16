@@ -115,6 +115,10 @@
     </style>
 
     <style>
+      html,
+      body {
+        overflow-x: hidden;
+      }
       body {
         display: flex;
         flex-direction: column;
@@ -157,7 +161,7 @@
         margin-left: 0px;
         display: inline-block;
         padding: 10px 20px;
-        background-color: #FFD700;
+        background-color: #ffd700;
         color: black;
         border: none;
         border-radius: 10px;
@@ -194,9 +198,9 @@
 
       #use-button {
         margin-bottom: 1rem;
-      	display: inline-block;
+        display: inline-block;
         padding: 10px 20px;
-        background-color: #FA8072;
+        background-color: #fa8072;
         color: black;
         border: none;
         border-radius: 10px;
@@ -260,30 +264,29 @@
       }
 
       .image {
-          width: 38%;
-          border-radius: 20px;
-          box-shadow: 0 2px 4px rgba(0, 1, 1, 0.5);
-
+        width: 38%;
+        border-radius: 20px;
+        box-shadow: 0 2px 4px rgba(0, 1, 1, 0.5);
       }
 
       .text1 {
-          width: 62%;
-          padding-left: 20px;
-          font-size: 16px;
-          text-align: left;
+        width: 62%;
+        padding-left: 20px;
+        font-size: 16px;
+        text-align: left;
       }
       .text2 {
-          width: 62%;
-          padding-right: 30px;
-          font-size: 16px;
-          text-align: right;
+        width: 62%;
+        padding-right: 30px;
+        font-size: 16px;
+        text-align: right;
       }
 
       ul1 {
         direction: rtl; /* Căn lề văn bản sang phải */
         list-style-type: none; /* Loại bỏ bullets mặc định */
         padding: 0;
-        style = "margin-top: 0px;";
+        margin-top: 0px;
       }
 
       li1 {
@@ -296,6 +299,16 @@
         position: absolute;
         right: 0;
         font-size: 18;
+      }
+
+      .container_solution {
+        border: 6px solid rgb(169, 204, 227);
+        border-radius: 80px;
+        margin: 0rem 5rem 0rem 5rem;
+      }
+
+      .spacer {
+        min-height: 2rem;
       }
     </style>
   </head>
@@ -323,7 +336,7 @@
                   </h1>
                   <pre
                     class="header-section-p lead my-8"
-                    style="color: #ffffff; font-size: 18px;"
+                    style="color: #ffffff; font-size: 18px"
                   >
 Hỗ trợ bác sĩ và người dân phát hiện, chăm
 sóc và chữa trị bệnh tại nhà, giảm thiểu
@@ -370,10 +383,11 @@ số ca mắc cho một cuộc sống khỏe mạnh hơn
                     class="photography-orange-rectangle photography-rectangle-top"
                   ></div>
                   <img
-                    src="https://thevideoink.com/wp-content/uploads/2021/11/wysiwyg-uploads_1569586526901-doctor.jpg"
+                    src = "images/..image0.jpg"
                     class="w-100"
                     style="position: relative; z-index: 1"
                   />
+                  <!-- src="https://thevideoink.com/wp-content/uploads/2021/11/wysiwyg-uploads_1569586526901-doctor.jpg" -->
                   <div
                     class="photography-orange-rectangle photography-rectangle-bottom"
                   ></div>
@@ -486,17 +500,20 @@ số ca mắc cho một cuộc sống khỏe mạnh hơn
       <button id="use-button">Bắt đầu chẩn đoán</button>
     </div>
 
-    <h1 id="solution" style="display: none; font-size: 50px; color: darkgreen">
-      Lời Khuyên
-    </h1>
-
-    <div class="container1" id="advice" style="display: none">
+    <div class="container_solution" id="advice" style="display: none">
+      <h1
+        id="solution"
+        style="display: none; font-size: 50px; color: darkgreen"
+      >
+        Lời Khuyên
+      </h1>
       <div class="container">
         <img
           class="image"
-          src="https://d.newsweek.com/en/full/1076279/chickenpox-stock.jpg"
+          src= "images/..image1.jpg"
           alt="Ảnh 1"
         />
+        <!--src="https://d.newsweek.com/en/full/1076279/chickenpox-stock.jpg"-->
         <div class="text1" style="margin-left: 10px">
           <h1 style="text-align: left; margin-bottom: 12px; margin-left: 10px">
             Thủy đậu
@@ -518,7 +535,7 @@ số ca mắc cho một cuộc sống khỏe mạnh hơn
 
       <div class="container" style="margin-top: 2rem">
         <div class="text2" style="margin-right: 10px; margin-top: -20px">
-          <h2 style="text-align:right margin-bottom: 12px; margin-right: 5px;">
+          <h2 style="text-align:right; margin-bottom: 12px; margin-right: 5px;">
             Chàm
           </h2>
           <ul1>
@@ -537,17 +554,19 @@ số ca mắc cho một cuộc sống khỏe mạnh hơn
         </div>
         <img
           class="image"
-          src="https://www.thesun.co.uk/wp-content/uploads/2022/07/NINTCHDBPICT000733794880.jpg"
+          src= "images/..image2.jpg"
           alt="Ảnh 2"
         />
+        <!--src="https://www.thesun.co.uk/wp-content/uploads/2022/07/NINTCHDBPICT000733794880.jpg"-->
       </div>
 
       <div class="container" style="margin-top: 0.5rem">
         <img
           class="image"
-          src="https://scontent.xx.fbcdn.net/v/t1.15752-9/353797550_926383761994250_2554919916316033964_n.jpg?stp=dst-jpg_s403x403&_nc_cat=110&cb=99be929b-3346023f&ccb=1-7&_nc_sid=aee45a&_nc_ohc=aPWHe3x4NwsAX9IfmBT&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTJxNIVjaC4wpkaqGnTvg48XPcbA-ZPwZNyzWK3m9tCCw&oe=64C33A88"
-          alt="Ảnh 3"
+          src= "images/..image3.jpg"     
+          alt="Ảnh 3" 
         />
+        <!-- src="https://i.pinimg.com/originals/5a/b6/12/5ab6122c3262138ce949365dd21876df.jpg" -->
         <div class="text1" style="margin-left: 10px">
           <h1 style="margin-bottom: 12px; margin-left: 10px">Ung thư da</h1>
           <ul style="margin-top: 0px">
@@ -560,6 +579,7 @@ số ca mắc cho một cuộc sống khỏe mạnh hơn
         </div>
       </div>
     </div>
+    <div class="spacer"></div>
 
     <script>
       // Get DOM elements

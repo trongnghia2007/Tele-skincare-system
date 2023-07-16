@@ -17,10 +17,14 @@ def home():
 @app.route("/perform-skin-recognition", methods=['GET', 'POST'])
 def handle_recog():
     if request.method == "POST":
+        # Nhận array options từ frontend 
+        selection = (request.form.getlist('sel[]'))
+        
+        # Nhận image từ frontend 
         image = (request.files['image'])
         image = skimage.io.imread(image)
         try:
-            res = recog.recognize(image)
+            res = recog.recognize(image, selection) 
             image = Image.fromarray(image).resize((224, 224))
             content = []
 
