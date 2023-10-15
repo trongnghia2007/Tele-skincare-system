@@ -1,1 +1,0 @@
-Vứt file model ở folder này
