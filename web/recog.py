@@ -34,6 +34,7 @@ def predict_with_model(img, seg, selection):
     data[0] = normalized_image_array
 
     # load model
+
     if selection == ['mụn trứng cá', 'khỏe mạnh']:
         model = keras.models.load_model('models/acne.h5')
     elif selection == ['viêm da', 'khỏe mạnh']:
@@ -52,6 +53,7 @@ def predict_with_model(img, seg, selection):
         model = keras.models.load_model('models/der.h5')
     elif selection == ['nấm da', 'khỏe mạnh']:
         model = keras.models.load_model('models/rw.h5')
+
     elif selection == ['mụn trứng cá', 'viêm da', 'nấm da', 'khỏe mạnh'] or selection == ['khỏe mạnh']:
         selection = ['mụn trứng cá', 'viêm da', 'nấm da', 'khỏe mạnh']
         model = keras.models.load_model('models/all.h5')
@@ -68,7 +70,7 @@ def recognize(img, selection):
     pathSave = 'segments/'
 
     skin_image = Image.fromarray(img).resize((224, 224))
-    segments = slic(img_as_float(skin_image), n_segments=4, sigma=5)
+    segments = slic(img_as_float(skin_image), n_segments=5, sigma=5)
 
     fig = Figure()  # Tạo đối tượng Figure mới
     canvas = FigureCanvas(fig)  # Tạo canvas cho Figure
