@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
         imgDiv.classList.add('khung'); // Thêm class khung vào div
 
         const imgElement = document.createElement('img');
-        imgElement.src = `/images/${image.filename}`;
+        imgElement.src = `/images/history/${image.filename}`;
         imgElement.alt = "Image";
         imgElement.classList.add('khung-img'); 
         imgDiv.appendChild(imgElement);
@@ -31,6 +31,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         imgDiv.appendChild(dateDiv);
         imagelist.appendChild(imgDiv);
+
+
 
         imgElement.addEventListener('click', function() {
           fetch('/find_image', {
@@ -58,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function() {
           })
           .catch(error => console.error('Error finding image:', error));
         });
+        
       });
     })
     .catch(error => console.error('Error fetching images:', error));
