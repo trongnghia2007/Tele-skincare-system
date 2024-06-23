@@ -18,7 +18,7 @@ h1 {
     margin: 1%;
 }
 
-/* Style của section 1*/
+/* Style của section 1 */
 .khung {
     border: 1px solid black; 
     padding: 10px;           
@@ -41,8 +41,8 @@ h1 {
 }
   
 .date-label {
-font-size: 1em; 
-margin-right: 5px; 
+    font-size: 1em; 
+    margin-right: 5px; 
 }
 /* ========================================================== */
 
@@ -53,6 +53,7 @@ margin-right: 5px;
     width: 97%;
     border-radius: 50px;           
     box-shadow: 10px 10px 50px rgb(146, 146, 146);
+    margin: 20px;
 }
 
 .frame {
@@ -87,3 +88,8 @@ margin-right: 5px;
     flex-wrap: wrap;
 }
 
+.resultlist {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+}
