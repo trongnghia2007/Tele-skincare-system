@@ -3,7 +3,9 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(response => response.json())
     .then(images => {
       const imagelist = document.querySelector('.imagelist');
-      const result = document.querySelector('.result');
+      const resultlist = document.querySelector('.resultlist');
+
+      let resultIndex = 0;
 
       images.forEach((image, index) => {
         if (image.folder === 'history') {
@@ -35,26 +37,36 @@ document.addEventListener("DOMContentLoaded", function() {
           imgDiv.appendChild(dateDiv);
           imagelist.appendChild(imgDiv);
 
-          imgElement.addEventListener('click', function() {
-            const resultImg = document.querySelector(`img[data-filename="${image.filename}"]`);
-            if (resultImg) {
-              if (resultImg.style.display === 'none' || resultImg.style.display === '') {
-                resultImg.style.display = 'block';
-              } else {
-                resultImg.style.display = 'none';
-              }
+          imgDiv.addEventListener('click', function() {
+            const resultDiv = document.getElementById(`result-${index}`);
+            if (resultDiv.style.display === 'none' || resultDiv.style.display === '') {
+              resultDiv.style.display = 'block';
+            } else {
+              resultDiv.style.display = 'none';
             }
           });
         } 
         
         else if (image.folder === 'test') {
-          // Thêm ảnh vào result với display=none
+          // Thêm ảnh vào resultlist với display=none
+          const resultDiv = document.createElement('div');
+          resultDiv.id = `result-${resultIndex}`;
+          resultDiv.classList.add('result');
+          resultlist.appendChild(resultDiv);
+
+          const frameDiv = document.createElement('div');
+          frameDiv.classList.add('frame');
+          resultDiv.appendChild(frameDiv);
+
           const resultImg = document.createElement('img');
           resultImg.src = `/images/test/${image.filename}`;
           resultImg.alt = "Result Image";
-          resultImg.style.display = 'none';
-          resultImg.dataset.filename = image.filename;  // Lưu trữ tên file để dễ truy cập
-          result.appendChild(resultImg);
+          resultImg.classList.add('frame-img');
+          frameDiv.appendChild(resultImg);
+          
+          resultDiv.style.display = 'none';
+
+          resultIndex++;
         }
       });
     })
