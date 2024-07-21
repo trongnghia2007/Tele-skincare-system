@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, send_file, jsonify
 import recog
-import skimage
+import skimage.io
 from PIL import Image
 import numpy as np
 import io
@@ -13,6 +13,11 @@ app = Flask(__name__)
 def home():
     return render_template('home.html')
 
+# Path to the folders containing images
+HISTORY_FOLDER = os.path.join(app.root_path, 'history')
+TEST_FOLDER = os.path.join(app.root_path, 'test')
+SEGMENTS_FOLDER = os.path.join(os.getcwd(), 'segments')
+
 @app.route('/save-image', methods=['POST'])
 def save_image():
     if 'image' not in request.files:
@@ -23,44 +28,40 @@ def save_image():
     if file.filename == '':
         return jsonify({"error": "No selected file"}), 400
 
-    # Đường dẫn tới folder history
-    history_folder = 'history'
+    if not os.path.exists(HISTORY_FOLDER):
+        os.makedirs(HISTORY_FOLDER)
 
-    if not os.path.exists(history_folder):
-        os.makedirs(history_folder)
+    # Number of images in the history folder
+    image_count = len([name for name in os.listdir(HISTORY_FOLDER) if os.path.isfile(os.path.join(HISTORY_FOLDER, name))])
 
-    # Số lượng ảnh có trong folder history
-    image_count = len([name for name in os.listdir(history_folder) if os.path.isfile(os.path.join(history_folder, name))])
-
-    # Lưu ảnh với tên mới
-    file_path = os.path.join(history_folder, f"{image_count + 1}.jpg")
+    # Save image with a new name
+    file_path = os.path.join(HISTORY_FOLDER, f"{image_count + 1}.jpg")
     file.save(file_path)
 
     return jsonify({"message": "Image saved successfully", "filename": f"{image_count + 1}.jpg"}), 200
 
-
 @app.route('/perform-skin-recognition', methods=['POST'])
 def handle_recog():
-    # Nhận array options từ frontend
+    # Receive array options from frontend
     selection = (request.form.getlist('sel[]'))
     selection.append("khỏe mạnh")
         
-    # Nhận filename từ frontend
+    # Receive filename from frontend
     filename = request.form.get('filename')
 
-    # Đường dẫn tới ảnh gốc
-    image_path = os.path.join('history', filename)
+    # Path to the original image
+    image_path = os.path.join(HISTORY_FOLDER, filename)
     image = skimage.io.imread(image_path)
 
-    res = recog.recognize(image,selection)
+    res = recog.recognize(image, selection)
 
-    # Lưu ảnh superpixel
-    superpixel_path = os.path.join('test', filename)
+    # Save superpixel image
+    superpixel_path = os.path.join(TEST_FOLDER, filename)
     superpixel_img = Image.fromarray(res['superpixel'])
     superpixel_img.save(superpixel_path)
 
-    # Lưu các phân đoạn ảnh
-    segment_folder = os.path.join('segments', filename.split('.')[0])
+    # Save the segments images
+    segment_folder = os.path.join(SEGMENTS_FOLDER, filename.split('.')[0])
     if not os.path.exists(segment_folder):
         os.makedirs(segment_folder)
     for i, segment in enumerate(res['segments']):
@@ -70,25 +71,24 @@ def handle_recog():
         segment_img = Image.fromarray(segment['image'])
         segment_img.save(segment_path)
 
-        # Lưu đường dẫn ảnh trong thông tin trả về
+        # Save the image path in the response
         segment['image'] = f"{i}_{class_name}_{confidence}.jpg"
 
     return jsonify(res['segments'])
 
-
 @app.route('/images/<filename>')
 def get_image(filename):
-    img = skimage.io.imread(f"test/{filename}")
+    img_path = os.path.join(TEST_FOLDER, filename)
+    img = skimage.io.imread(img_path)
     img = Image.fromarray(img)
     file_object = io.BytesIO()
     img.save(file_object, 'JPEG')
     file_object.seek(0)
     return send_file(file_object, mimetype='image/jpeg')
 
-
-@app.route('/segments/<folder>/<filename>')
+@app.route('/images/<folder>/<filename>')
 def get_segment_image(folder, filename):
-    img_path = os.path.join('segments', folder, filename)
+    img_path = os.path.join(SEGMENTS_FOLDER, folder, filename)
     img = skimage.io.imread(img_path)
     img = Image.fromarray(img)
     file_object = io.BytesIO()
