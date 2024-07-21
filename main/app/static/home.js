@@ -116,7 +116,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
           segmentDiv.classList.add("frame-sm");
   
           const segmentImg = new Image();
-          segmentImg.src = `/segments/${filename.split('.')[0]}/${segment.image}`;
+          segmentImg.src = `/images/${filename.split('.')[0]}/${segment.image}`;
           segmentImg.classList.add("frame-sm-img");
   
           const info = document.createElement("p1");
