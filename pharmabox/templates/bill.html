@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hóa Đơn</title>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Đơn Thuốc</h1>
+      <table border="1" cellpadding="10">
+        <tr>
+          <th>Tên sản phẩm</th>
+          <th>Giá</th>
+          <th>Số lượng</th>
+          <th>Thành tiền</th>
+        </tr>
+        {% for item in items %}
+        <tr>
+          <td>{{ item.name }}</td>
+          <td>{{ item.price }} VND</td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.total }} VND</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <h2>Tổng số tiền: {{ total_amount }} VND</h2>
+      <button id="payButton">Thanh toán</button>
+    </div>
+
+    <script>
+      document.getElementById("payButton").onclick = function () {
+        window.location.href = '/payment';
+      };
+    </script>
+  </body>
+</html>
