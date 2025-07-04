@@ -41,6 +41,19 @@ Special thanks to [Huy Trong Nguyen](https://github.com/nguyenhuytrong) and [Quo
 
 ---
 
+## Process
+![image](https://github.com/user-attachments/assets/e63cc762-298e-4e02-afa7-12a72169e743)
+
+---
+
+## Demo
+
+### **Module 1: Web App**
+![image](https://github.com/user-attachments/assets/062099af-4b95-452f-a0a5-97196c94820c)
+![image](https://github.com/user-attachments/assets/ca43fb72-ad7e-43e5-b7ae-993bef59bb37)
+
+### **Module 2: PharmaBox**
+![image](https://github.com/user-attachments/assets/ee3417c7-061d-4978-92ce-b10b0defcd0f)
 
 ---
 
