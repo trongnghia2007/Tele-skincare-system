@@ -60,7 +60,7 @@ Special thanks to [Huy Trong Nguyen](https://github.com/nguyenhuytrong) and [Quo
 ## 📞 Contact
 
 For further questions or collaboration:
-- 📧 huynghia05012007@gmail.com
+- 📧 [Gmail](huynghia05012007@gmail.com)
 - 👨‍💻 [LinkedIn link](https://www.linkedin.com/in/huy-nghia-nguyen-501010333/)
 - 💼 [GitHub link](https://github.com/trongnghia2007)
 
