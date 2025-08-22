@@ -2,13 +2,9 @@
 
 A remote skincare support system for diagnosing skin conditions, guiding skincare methods, consulting dermatologists, and enabling medicine dispensing via smart pharmabox.
 
----
-
 ## 👥 Contributors
 
 Special thanks to [Huy Trong Nguyen](https://github.com/nguyenhuytrong) and [Quoc Dat Bui](https://github.com/doquolo) for contributing dedicatedly to this project.
-
----
 
 ## 📦 Repository Structure
 
@@ -23,7 +19,6 @@ Special thanks to [Huy Trong Nguyen](https://github.com/nguyenhuytrong) and [Quo
     - *Backend*: Python (Flask)
     - *Database*: MongoDB
 
----
 
 ### 🩹 **Module 2: Pharmabox**
 
@@ -39,12 +34,11 @@ Special thanks to [Huy Trong Nguyen](https://github.com/nguyenhuytrong) and [Quo
 * **Payment system**:
     - Payment API integration (Casso, PayOS, ...)
 
----
 
 ## Process
 ![image](https://github.com/user-attachments/assets/e63cc762-298e-4e02-afa7-12a72169e743)
 
----
+
 
 ## Demo
 
@@ -55,7 +49,7 @@ Special thanks to [Huy Trong Nguyen](https://github.com/nguyenhuytrong) and [Quo
 ### **Module 2: PharmaBox**
 ![image](https://github.com/user-attachments/assets/ee3417c7-061d-4978-92ce-b10b0defcd0f)
 
----
+
 
 ## 📞 Contact
 
