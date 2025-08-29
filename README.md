@@ -55,8 +55,8 @@ Special thanks to [Huy Trong Nguyen](https://github.com/nguyenhuytrong) and [Quo
 
 For further questions or collaboration:
 - 📧 [Gmail](huynghia05012007@gmail.com)
-- 👨‍💻 [LinkedIn link](https://www.linkedin.com/in/huy-nghia-nguyen-501010333/)
-- 💼 [GitHub link](https://github.com/trongnghia2007)
+- 👨‍💻 [LinkedIn](https://www.linkedin.com/in/huy-nghia-nguyen-501010333/)
+- 💼 [GitHub](https://github.com/trongnghia2007)
 
 ---
 
