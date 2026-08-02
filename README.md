@@ -1,7 +1,6 @@
-# Tele Skincare System
+# Tele Skincare System [📄 Paper](https://ieeexplore.ieee.org/document/10914766)
 
 A remote skincare support system for diagnosing skin conditions, guiding skincare methods, consulting dermatologists, and enabling medicine dispensing via smart pharmabox.
-[📄 Paper](https://ieeexplore.ieee.org/document/10914766)
 
 ## 👥 Contributors
 
